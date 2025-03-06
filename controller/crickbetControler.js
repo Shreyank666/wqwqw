@@ -276,3 +276,21 @@ exports.updateResultUserBet = async (req, res) => {
   }
 };
 
+exports.updatecricketlagaikhai= async (req, res) => {
+  try {
+      const { status } = req.body;
+      const bet = await Bet2.findByIdAndUpdate(
+          req.params.id,
+          { status },
+          { new: true }
+      );
+
+      if (!bet) {
+          return res.status(404).json({ message: 'Bet not found' });
+      }
+
+      res.json({ message: 'Status updated successfully', bet });
+  } catch (error) {
+      res.status(500).json({ message: 'Server error', error });
+  }
+};
