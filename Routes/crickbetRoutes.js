@@ -6,7 +6,7 @@ const crickbetControler = require('../controller/crickbetControler');
 router.post('/api/bets', crickbetControler.placeBet);
 router.get('/api/bets/:userId', crickbetControler.getUserBets);
 router.post('/wallet/update',crickbetControler.updateWallet);
-
+router.put('/api/cricket/update-status/:id',crickbetControler.updatecricketlagaikhai);
 // router.delete('/api/bets', betController.resetBets);
 router.post('/api/admin/signup',crickbetControler.adminusersignup);
 router.get('/api/admin/cricketmarket/allbetsupdate',crickbetControler.allbetsupdate);
