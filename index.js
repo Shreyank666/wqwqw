@@ -241,7 +241,7 @@ app.post('/api/signup', async (req, res) => {
     let userNo;
     let count = 5000;
     do {
-      userNo = `c${count}`;
+      userNo = `C${count}`;
       count++;
     } while (await User.findOne({ userNo }));
 
