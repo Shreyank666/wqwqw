@@ -271,3 +271,18 @@ exports.getuserDepositData = async (req, res) => {
         res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
+exports.userLoginUserNo =async(req,res)=>{
+  try {
+    const { username } = req.params;
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    res.json({ success: true, userNo: user.userNo });
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+}
