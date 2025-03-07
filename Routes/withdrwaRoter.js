@@ -4,7 +4,7 @@ const withdrawController = require("../controller/withdrawController");
 const upload = require("../middlware/multer");
 // Route to create a withdrawal request
 router.post("/withdraw", withdrawController.createWithdrawal);
-
+router.get('/userLoginUserNo/:username', withdrawController.userLoginUserNo);
 // Route to fetch all withdrawals
 router.get('/getupiqr', withdrawController.getupiqr);
 router.get('/getwithdrawal/:userId', withdrawController.getAllWithdrawals);
